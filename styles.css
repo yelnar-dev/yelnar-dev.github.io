@@ -293,6 +293,14 @@ li + li {
         margin-top: 20px;
     }
 
+    li {
+        font-size: 14px;
+    }
+
+    .job-title {
+        font-size: 16px;
+    }
+
     .header,
     .education-item {
         break-inside: avoid-page;
