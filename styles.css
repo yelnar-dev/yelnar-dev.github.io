@@ -1,0 +1,288 @@
+:root {
+    --text: #1f2937;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --accent: #2563eb;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --max: 960px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.55;
+}
+
+.page {
+    max-width: var(--max);
+    margin: 32px auto;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    overflow: hidden;
+}
+
+.header {
+    padding: 36px 40px 24px;
+    border-bottom: 1px solid var(--line);
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+h1 {
+    margin: 0 0 8px;
+    font-size: 34px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 14px;
+}
+
+.contacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+    font-size: 14px;
+}
+
+.contacts a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.contacts a:hover {
+    text-decoration: underline;
+}
+
+.print-trigger,
+.lang-link {
+    border: 1px solid var(--line);
+    background: #fff;
+    color: var(--text);
+    border-radius: 999px;
+    padding: 10px 16px;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.print-trigger {
+    cursor: pointer;
+}
+
+.lang-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.print-trigger:hover,
+.lang-link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 0;
+}
+
+.sidebar {
+    padding: 28px 24px 36px 40px;
+    border-right: 1px solid var(--line);
+    background: #fcfdff;
+}
+
+.main {
+    padding: 28px 40px 36px;
+}
+
+section + section {
+    margin-top: 28px;
+}
+
+h2 {
+    margin: 0 0 14px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.skill-group + .skill-group,
+.education-item + .education-item,
+.job + .job {
+    margin-top: 18px;
+}
+
+.label {
+    font-weight: 700;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 8px;
+}
+
+.job-title {
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 1.25;
+}
+
+.company {
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+.period {
+    white-space: nowrap;
+    color: var(--muted);
+    font-size: 14px;
+    text-align: right;
+}
+
+ul {
+    margin: 10px 0 0 18px;
+    padding: 0;
+}
+
+li + li {
+    margin-top: 8px;
+}
+
+.education-item .degree {
+    font-weight: 700;
+}
+
+.education-item .school {
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+.education-item .meta {
+    margin-top: 4px;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.print-page-break-before {
+    break-before: page;
+    page-break-before: always;
+}
+
+.print-page-break-after {
+    break-after: page;
+    page-break-after: always;
+}
+
+.print-avoid-break {
+    break-inside: avoid-page;
+    page-break-inside: avoid;
+}
+
+@media (max-width: 800px) {
+    .header-top {
+        flex-direction: column;
+    }
+
+    .header-actions {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+        padding-right: 40px;
+    }
+}
+
+@media print {
+    @page {
+        margin: 14mm 16mm 16mm;
+    }
+
+    body {
+        background: #fff;
+    }
+
+    .page {
+        margin: 0;
+        max-width: none;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .print-trigger,
+    .lang-link {
+        display: none;
+    }
+
+    .content {
+        display: block;
+    }
+
+    .sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+        padding-right: 40px;
+    }
+
+    .header,
+    .sidebar section,
+    .job,
+    .education-item,
+    h2 {
+        break-inside: avoid-page;
+        page-break-inside: avoid;
+    }
+
+    .print-page-break-before {
+        padding-top: 6mm;
+    }
+}
