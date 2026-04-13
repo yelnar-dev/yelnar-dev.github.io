@@ -253,6 +253,10 @@ li + li {
         box-shadow: none;
     }
 
+    .header {
+        padding: 24px 32px 14px;
+    }
+
     a {
         color: inherit;
         text-decoration: none;
@@ -263,6 +267,14 @@ li + li {
         display: none;
     }
 
+    .header-top {
+        display: block;
+    }
+
+    .header-actions {
+        display: none;
+    }
+
     .content {
         display: block;
     }
@@ -270,14 +282,34 @@ li + li {
     .sidebar {
         border-right: none;
         border-bottom: 1px solid var(--line);
-        padding-right: 40px;
+        padding: 14px 32px 20px;
+    }
+
+    .main {
+        padding: 14px 32px 24px;
+    }
+
+    section + section {
+        margin-top: 20px;
     }
 
     .header,
-    .sidebar section,
-    .job,
-    .education-item,
-    h2 {
+    .education-item {
+        break-inside: avoid-page;
+        page-break-inside: avoid;
+    }
+
+    .job {
+        break-inside: auto;
+        page-break-inside: auto;
+    }
+
+    .job-header {
+        break-after: avoid-page;
+        page-break-after: avoid;
+    }
+
+    li {
         break-inside: avoid-page;
         page-break-inside: avoid;
     }
